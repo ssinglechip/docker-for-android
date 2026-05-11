@@ -34,14 +34,23 @@ func main() {
 	httpClient := CreateHTTPClient()
 
 	// Step 1: 检测硬盘挂载
+	// 修改后
+	// 注释掉原有的硬盘检测逻辑，使用一个默认路径
+	/*
 	fmt.Println("[1/5] 检测硬盘挂载点...")
 	diskRoot, err := detectDiskMount()
 	if err != nil {
-		fmt.Printf("✗ 错误: %v\n", err)
-		fmt.Println("✗ 默认需要 ext4 外置硬盘，也可在提示时选择使用 /data/local/docker-storage 继续")
-		os.Exit(1)
+	    fmt.Printf("✗ 错误: %v\n", err)
+	    fmt.Println("✗ 默认需要 ext4 外置硬盘，也可在提示时选择使用 /data/local/docker-storage 继续")
+	    os.Exit(1)
 	}
 	fmt.Printf("✓ 检测到硬盘挂载点: %s\n", diskRoot)
+	fmt.Println()
+	*/
+	
+	// 使用默认路径，例如 /data/local/docker-storage
+	diskRoot := "/data/data/com.termux/files/home/docker"
+	fmt.Printf("✓ 使用默认安装路径: %s\n", diskRoot)
 	fmt.Println()
 
 	// 设置临时文件夹
